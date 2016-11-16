@@ -1,0 +1,58 @@
+option optimize_for = SPEED;
+option java_package = "routing";
+
+import "common.proto";
+
+enum Action{
+	READ=0;
+	
+	UPLOAD=1;
+	
+	PING=2;
+	
+}
+message CommandMessage {
+
+   	required Header header = 1;
+   	
+	optional string filename=2;
+	
+	optional int64 totalSize=3;
+	
+	optional int32 port=4;
+	
+	optional string host=5;
+	
+	required Action action=6;
+	
+	required int32 messageId=7;
+	
+	optional Chunk chunk = 8;
+	
+	optional bool intercluster = 15;
+
+    oneof payload {
+      // a client (external) sanity check for testing
+      bool ping = 9;
+
+	  bytes uploadData = 10; 
+	  	 
+      Failure err = 12;
+      
+      ReadResponse readResponse=13;
+   }
+}
+
+message ReadResponse{
+
+		required bytes readData=1;
+}
+
+message Chunk{
+	
+	required int32 chunkId=1;
+	
+	required int64 chunkSize=2;
+	
+	required int64 numberOfChunks=3;
+}

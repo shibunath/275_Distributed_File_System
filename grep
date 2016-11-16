@@ -1,0 +1,66 @@
+Buildfile: /home/parmj/275CMPE/dfs/protobuf-netty-avd/build.xml
+     [echo] Hello runtime/route-1.conf
+
+init:
+
+clean:
+   [delete] Deleting directory /home/parmj/275CMPE/dfs/protobuf-netty-avd/classes
+
+build:
+    [mkdir] Created dir: /home/parmj/275CMPE/dfs/protobuf-netty-avd/classes
+    [javac] /home/parmj/275CMPE/dfs/protobuf-netty-avd/build.xml:41: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 32 source files to /home/parmj/275CMPE/dfs/protobuf-netty-avd/classes
+
+server:
+     [java] [main] INFO server - Work starting
+     [java] [Thread-1] INFO server - Starting work server (1), listening on port = 4167
+     [java] server closing
+     [java] [Thread-1] INFO server - /0:0:0:0:0:0:0:0:4167 -> open: true, write: true, act: true
+     [java] java.net.ConnectException: Connection refused: localhost/127.0.0.1:4267
+     [java] failed to initialize the client connectionjava.net.ConnectException: Connection refused: localhost/127.0.0.1:4267	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+     [java] LOGGERRRRR[id: 0x457ae834, /127.0.0.1:34676 => localhost/127.0.0.1:4567]
+     [java] 	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:739)
+     [java] 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:191)
+     [java] 2$$$$$$$$$$$$$$
+     [java] 
+     [java] /127.0.0.1:34676 -> open: true, write: true, reg: true	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:255)
+     [java] 
+     [java] 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:502)
+     [java] 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+     [java] 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+     [java] 	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:101)
+     [java] 	at java.lang.Thread.run(Thread.java:745)
+     [java] [Thread-0] INFO edge monitor - trying to connect to node 2
+     [java] handle message31 : [id: 0x7f2e2473, /127.0.0.1:40850 => /127.0.0.1:4167]
+     [java] [nioEventLoopGroup-4-2] INFO work - heartbeat from 2
+     [java] LOGGERRRRR[id: 0x63d41cdb, /127.0.0.1:48488 => localhost/127.0.0.1:4267]
+     [java] 3$$$$$$$$$$$$$$
+     [java] /127.0.0.1:48488 -> open: true, write: true, reg: true
+     [java] LOGGERRRRR[id: 0x69cea2cf, /127.0.0.1:34692 => localhost/127.0.0.1:4567]
+     [java] 4$$$$$$$$$$$$$$
+     [java] /127.0.0.1:34692 -> open: true, write: true, reg: true
+     [java] LOGGERRRRR[id: 0x7d53567d, /127.0.0.1:48492 => localhost/127.0.0.1:4267]
+     [java] 5$$$$$$$$$$$$$$
+     [java] /127.0.0.1:48492 -> open: true, write: true, reg: true
+     [java] 2016-03-27 14:47:20.86TIMEOUT STARTING..in : 1for 4000ms..
+     [java] Exception in thread "Thread-0" java.lang.NoClassDefFoundError: pipe/election/Election$LeaderStatus$LeaderQuery
+     [java] 	at gash.router.server.edges.EdgeMonitor.run(EdgeMonitor.java:211)
+     [java] 	at java.lang.Thread.run(Thread.java:745)
+     [java] 2016-03-27 14:47:24.86I am candidate!!!!!!!!!!!!
+     [java] 2016-03-27 14:47:24.86PLease vote for me...:1
+     [java] [nioEventLoopGroup-4-5] INFO work - heartbeat from 5
+     [java] handle message31 : [id: 0x2ca6071a, /127.0.0.1:40868 => /127.0.0.1:4167]
+     [java] LOGGERRRRR[id: 0xb5bab833, /127.0.0.1:48502 => localhost/127.0.0.1:4267]
+     [java] 6$$$$$$$$$$$$$$
+     [java] /127.0.0.1:48502 -> open: true, write: true, reg: true
+     [java] LOGGERRRRR[id: 0x78d313c6, /127.0.0.1:34706 => localhost/127.0.0.1:4567]
+     [java] 7$$$$$$$$$$$$$$
+     [java] /127.0.0.1:34706 -> open: true, write: true, reg: true
+     [java] [nioEventLoopGroup-4-2] INFO work - heartbeat from 2
+     [java] handle message31 : [id: 0x7f2e2473, /127.0.0.1:40850 => /127.0.0.1:4167]
+     [java] LOGGERRRRR[id: 0x7864a3ff, /127.0.0.1:48510 => localhost/127.0.0.1:4267]
+     [java] 8$$$$$$$$$$$$$$
+     [java] /127.0.0.1:48510 -> open: true, write: true, reg: true
+     [java] LOGGERRRRR[id: 0x6f2857b3, /127.0.0.1:34714 => localhost/127.0.0.1:4567]
+     [java] 9$$$$$$$$$$$$$$
+     [java] /127.0.0.1:34714 -> open: true, write: true, reg: true

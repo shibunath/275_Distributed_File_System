@@ -1,0 +1,17 @@
+option optimize_for = SPEED;
+option java_package = "ClientFacingMapping";
+
+message ClientFacingMessage {
+optional string hostip = 1; //Self IP
+required MapAction mapaction= 2;
+optional string ip = 3; //Leader IP
+optional int32 port = 4; //LeaderPort
+
+
+}
+
+enum MapAction{
+    WHICHSERVER  = 1;
+    SERVERIS = 2;
+}
+

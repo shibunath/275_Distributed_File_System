@@ -1,0 +1,86 @@
+
+option optimize_for = SPEED;
+option java_package = "pipe.work";
+
+import "common.proto";
+import "election.proto";
+import "pipe.proto";
+
+message WorkState {
+   required int32 enqueued = 1;
+   required int32 processed = 2;
+   optional double cpuLoad = 3;
+   optional bool steal=4;
+}
+
+message Heartbeat {
+   required WorkState state = 1;
+  
+   required int32 totalNodes = 2;
+   optional int64 capacity=3;
+   
+}
+
+/**
+ * description of the work
+ */
+ enum TaskAction{
+ 
+ 		STEAL=1;
+ 		ENQUEUE=2;
+ 	 	RESPONSE=3;  //response after the	
+ }
+ 
+ enum TaskStatus{
+ 		INPROCESS=1;
+ 		PROCESSED=2;
+ 		FAILED=3;
+ 		NEW=4;
+ 		
+ }
+ message WorkStealer {
+	 required int32 nodeId=1;
+}
+message Task {  
+    required int64 series_id = 1;
+    required int32 seq_id = 2;
+    optional TaskAction taskAction=3;
+    optional TaskStatus taskStatus=4;
+    
+    oneof payload{
+    		
+  	CommandMessage message = 5;
+  	 	
+  	Failure err=6;
+  	
+  	string responseMessage =7;
+  	}
+}
+
+
+// These are messages to keep the network running (not to perform work)
+message WorkMessage {
+   required Header header = 1;
+   required int64 secret = 2;
+   
+
+   /**
+    * The actions (request or response) is
+    * implicit through which data structure is in the payload.
+    */ 
+
+   oneof payload {
+      Failure err = 3;
+      
+      // a sanity check for testing
+      bool ping = 4;
+
+      // status updates between adjacent workers
+      Heartbeat beat = 5;
+
+      Task task = 6;
+      WorkState state = 7;
+      LeaderStatus leader = 8;
+      WorkStealer steal=9;
+   }
+}
